@@ -89,9 +89,6 @@ def checkWord():
     if correct == 5:
         gameComplete = True
 
-    else:
-        print(f"Unlucky, you didn't get it this time! \nThe word was: {word}")
-
 
 def startScreen():
     print(f'''
@@ -137,6 +134,11 @@ def runGame():
         startScreen()
         print('\n'.join(wordAttempts))
         print('Well Done, word successfully guessed!')
+    else:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        startScreen()
+        print('\n'.join(wordAttempts))
+        print(f"Unlucky, you didn't get it this time! \nThe word was: {word}")
 
 
 runGame()
