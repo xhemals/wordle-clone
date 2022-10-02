@@ -10,9 +10,9 @@
   - [ ] 3 letter words
   - [ ] 6 letter words
 - [ ] Create different modes
- - [ ] Unlimited attempts
- - [ ] 3 attempts
- - [ ] Impossible (no colour mode)
+  - [ ] Easy (Unlimited attempts)
+  - [ ] Hard (3 attempts)
+  - [ ] Impossible (no colour mode)
 - [ ] Scoring system
   - [ ] Time based score
   - [ ] Time x Attempts based score
