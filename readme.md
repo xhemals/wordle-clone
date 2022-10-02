@@ -23,6 +23,6 @@
 <img width="409" alt="image" src="https://user-images.githubusercontent.com/91919183/193435588-a4787c91-dc5b-4ec7-b9bd-95ccf974b709.png">
 
 # Losing Game
-<img width="409" alt="image" src="https://user-images.githubusercontent.com/91919183/193435646-f4c4b6a4-3bcc-4ab5-a03d-a98eb010fdee.png">
+<img width="409" alt="image" src="https://user-images.githubusercontent.com/91919183/193436188-0b9be94e-01df-475a-9c11-158523ee8c93.png">
 
 
