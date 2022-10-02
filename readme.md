@@ -1,6 +1,28 @@
 # Wordle Clone
 
-This is a CLI version of wordle created using Python
+### Goals
+- [x] Create game
+- [ ] Create GUI verion
+  - [ ] Tkinter
+  - [ ] Web (Django)
+    - [ ] Mobile friendly
+- [ ] Create longer & shorter word versions
+  - [ ] 3 letter words
+  - [ ] 6 letter words
+- [ ] Create different modes
+ - [ ] Unlimited attempts
+ - [ ] 3 attempts
+ - [ ] Impossible (no colour mode)
+- [ ] Scoring system
+  - [ ] Time based score
+  - [ ] Time x Attempts based score
+  - [ ] Factor difficulty into score
+  - [ ] Leaderboard for web version
+
+# Winning Game
+<img width="409" alt="image" src="https://user-images.githubusercontent.com/91919183/193435588-a4787c91-dc5b-4ec7-b9bd-95ccf974b709.png">
+
+# Losing Game
+<img width="409" alt="image" src="https://user-images.githubusercontent.com/91919183/193435646-f4c4b6a4-3bcc-4ab5-a03d-a98eb010fdee.png">
 
 
-<img width="409" alt="image" src="https://user-images.githubusercontent.com/91919183/193435168-afe6e940-3857-4dcb-95d3-18554189cbab.png">
