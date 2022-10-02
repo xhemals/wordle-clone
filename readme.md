@@ -5,7 +5,7 @@
 The scoring system is created using a mixture of the players time, multiplied by a score based on their attempts. The max score is calculated by dividing the max score by the users time. When I create harder difficulties, this score will be higher in order to increase the score of the user
 
 ```
-maxScore = 1000000
+maxScore = 100000
 scoreMultiplier = {
     6: 1.1,
     5: 1.3,
