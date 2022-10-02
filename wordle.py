@@ -4,7 +4,7 @@ from tkinter import TRUE
 import os
 import sys
 
-wordfile ='text.txt'
+wordfile ='wordlists/text.txt'
 wordlist = open(wordfile, 'r')
 
 class colours:
@@ -96,7 +96,7 @@ __      _____  _ __ __| | | ___
  \ V  V / (_) | | | (_| | |  __/
   \_/\_/ \___/|_|  \__,_|_|\___|
                                 
-Welcome to Wordle clone by Jamie Speller
+Welcome to Wordle clone by xhemals
 You have 6 attempts to guess the word
 {colours.GREEN}Green means you have the letter in the right space
 {colours.AMBER}Amber means the letter is in the word
@@ -120,7 +120,7 @@ __      _____  _ __ __| | | ___
  \ V  V / (_) | | | (_| | |  __/
   \_/\_/ \___/|_|  \__,_|_|\___|
                                 
-Welcome to Wordle clone by Jamie Speller
+Welcome to Wordle clone by xhemals
 You have 6 attempts to guess the word
 {colours.GREEN}Green means you have the letter in the right space
 {colours.AMBER}Amber means the letter is in the word
