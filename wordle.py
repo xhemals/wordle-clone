@@ -1,11 +1,13 @@
 import random
-from itertools import (takewhile,repeat)
-from tkinter import TRUE
 import os
 import sys
+from itertools import (takewhile, repeat)
 
-wordfile ='wordlists/text.txt'
+wordfile = 'wordlists/text.txt'
 wordlist = open(wordfile, 'r')
+
+# Ansi escape codes for changing text colour based on asnwers
+
 
 class colours:
     RED = '\u001b[31m'
@@ -13,11 +15,18 @@ class colours:
     GREEN = '\u001b[32m'
     RESET = '\u001b[0m'
 
+# Count lines in file to allow for any wordlist
+
+
 def rawincount(filename):
     f = open(filename, 'rb')
-    bufgen = takewhile(lambda x: x, (f.raw.read(1024*1024) for _ in repeat(None)))
-    return sum( buf.count(b'\n') for buf in bufgen )
+    bufgen = takewhile(lambda x: x, (f.raw.read(1024*1024)
+                       for _ in repeat(None)))
+    return sum(buf.count(b'\n') for buf in bufgen)
     f.close()
+
+# Find a word from the wordlist
+
 
 def findWord():
     global word, letters
@@ -26,6 +35,8 @@ def findWord():
     word = wordlistReadLines[wordLine]
     word = word.replace('\n', '')
     letters = list(word)
+
+# Allow user to guess the word
 
 
 def guessWord():
@@ -40,9 +51,10 @@ def guessWord():
         else:
             correctLen = True
     guess = list(guess)
-    attempts+=1
-    
+    attempts += 1
 
+
+# Check to see which letters of the word is correct
 def checkWord():
     global gameComplete, wordAttempts
     checkWord = letters[:]
@@ -54,10 +66,10 @@ def checkWord():
             correctPlace = False
             for y in checkWord:
                 if correctPlace == False and correctLetter == False:
-                    #print(f'{guess.index(x)} {x} {checkWord.index(y)} {y}')
                     if x == y:
                         if guess.index(x) == checkWord.index(y):
-                            outcome.append(f'{colours.GREEN}{x}{colours.RESET}')
+                            outcome.append(
+                                f'{colours.GREEN}{x}{colours.RESET}')
                             correctPlace = True
                             guess[guess.index(x)] = '!'
                             correct += 1
@@ -65,8 +77,9 @@ def checkWord():
                             if checkWord.count(y) > 1:
                                 checkWord[checkWord.index(y)] = y+'!'
                             else:
-                                outcome.append(f'{colours.AMBER}{x}{colours.RESET}')
-                                correctLetter = True    
+                                outcome.append(
+                                    f'{colours.AMBER}{x}{colours.RESET}')
+                                correctLetter = True
                                 guess[guess.index(x)] = '!'
         else:
             outcome.append(f'{colours.RED}{x}{colours.RESET}')
@@ -75,14 +88,14 @@ def checkWord():
 
     if correct == 5:
         gameComplete = True
-        print('Well Done, word successfully guessed!')
+
     else:
-        print(f"Unlucky, you didn't get it this time! \n the word was: {word}")
-    
+        print(f"Unlucky, you didn't get it this time! \nThe word was: {word}")
 
 
+# Run the game
 def runGame():
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     global attempts, gameComplete, wordAttempts
     gameComplete = False
     attempts = 0
@@ -104,15 +117,13 @@ You have 6 attempts to guess the word
 {colours.RESET}
     ''')
     print('Guess the word:')
-    while gameComplete != TRUE and attempts != 6:
-        if firstRun == TRUE:
+    while gameComplete != True and attempts != 6:
+        if firstRun == True:
             guessWord()
             checkWord()
-
-            #os.system('cls' if os.name=='nt' else 'clear') 
             firstRun = False
         else:
-            os.system('cls' if os.name=='nt' else 'clear') 
+            os.system('cls' if os.name == 'nt' else 'clear')
             print(f'''
                        _ _      
 __      _____  _ __ __| | | ___ 
@@ -130,8 +141,24 @@ You have 6 attempts to guess the word
             print('\n'.join(wordAttempts))
             guessWord()
             checkWord()
-
-            #os.system('cls' if os.name=='nt' else 'clear') 
+    if gameComplete == True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f'''
+                       _ _      
+__      _____  _ __ __| | | ___ 
+\ \ /\ / / _ \| '__/ _` | |/ _ \\
+ \ V  V / (_) | | | (_| | |  __/
+  \_/\_/ \___/|_|  \__,_|_|\___|
+                                
+Welcome to Wordle clone by xhemals
+You have 6 attempts to guess the word
+{colours.GREEN}Green means you have the letter in the right space
+{colours.AMBER}Amber means the letter is in the word
+{colours.RED}Red means the letter is not in the word
+{colours.RESET}
+            ''')
+        print('\n'.join(wordAttempts))
+        print('Well Done, word successfully guessed!')
 
 
 runGame()
