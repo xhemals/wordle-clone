@@ -1,7 +1,27 @@
-# Wordle Clone
+# SPELLER (Wordle clone)
+<img width="414" alt="image" src="https://user-images.githubusercontent.com/91919183/193477366-39fa0908-e5ea-4487-9aff-04941d691f96.png">
+
+## Scoring system
+The scoring system is created using a mixture of the players time, multiplied by a score based on their attempts. The max score is calculated by dividing the max score by the users time. When I create harder difficulties, this score will be higher in order to increase the score of the user
+
+```
+maxScore = 1000000
+scoreMultiplier = {
+    6: 1.1,
+    5: 1.3,
+    4: 1.5,
+    3: 1.9,
+    2: 2.5,
+    1: 5
+}
+score = maxScore / timeTaken
+score *= scoreMultiplier[attempts]
+score = round(score)
+```
+
 
 ### Goals
-- [x] Create game
+- [x] ~~Create game~~
 - [ ] Create GUI verion
   - [ ] Tkinter
   - [ ] Web (Django)
@@ -10,19 +30,14 @@
   - [ ] 3 letter words
   - [ ] 6 letter words
 - [ ] Create different modes
- - [ ] Unlimited attempts
- - [ ] 3 attempts
- - [ ] Impossible (no colour mode)
+  - [ ] Easy (Unlimited attempts)
+  - [ ] Hard (3 attempts)
+  - [ ] Impossible (no colour mode)
 - [ ] Scoring system
-  - [ ] Time based score
-  - [ ] Time x Attempts based score
+  - [x] ~~Time based score~~
+  - [x] ~~Time x Attempts based score~~
   - [ ] Factor difficulty into score
   - [ ] Leaderboard for web version
 
-# Winning Game
-<img width="409" alt="image" src="https://user-images.githubusercontent.com/91919183/193435588-a4787c91-dc5b-4ec7-b9bd-95ccf974b709.png">
-
-# Losing Game
-<img width="409" alt="image" src="https://user-images.githubusercontent.com/91919183/193436188-0b9be94e-01df-475a-9c11-158523ee8c93.png">
 
 
