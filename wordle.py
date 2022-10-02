@@ -3,7 +3,7 @@ import os
 import sys
 from itertools import (takewhile, repeat)
 
-wordfile = 'wordlists/text.txt'
+wordfile = 'wordLists/text.txt'
 wordlist = open(wordfile, 'r')
 
 # Ansi escape codes for changing text colour based on asnwers
@@ -93,15 +93,7 @@ def checkWord():
         print(f"Unlucky, you didn't get it this time! \nThe word was: {word}")
 
 
-# Run the game
-def runGame():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    global attempts, gameComplete, wordAttempts
-    gameComplete = False
-    attempts = 0
-    wordAttempts = []
-    findWord()
-    firstRun = True
+def startScreen():
     print(f'''
                        _ _      
 __      _____  _ __ __| | | ___ 
@@ -116,6 +108,18 @@ You have 6 attempts to guess the word
 {colours.RED}Red means the letter is not in the word
 {colours.RESET}
     ''')
+
+
+# Run the game
+def runGame():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    global attempts, gameComplete, wordAttempts
+    gameComplete = False
+    attempts = 0
+    wordAttempts = []
+    findWord()
+    firstRun = True
+    startScreen()
     print('Guess the word:')
     while gameComplete != True and attempts != 6:
         if firstRun == True:
@@ -124,39 +128,13 @@ You have 6 attempts to guess the word
             firstRun = False
         else:
             os.system('cls' if os.name == 'nt' else 'clear')
-            print(f'''
-                       _ _      
-__      _____  _ __ __| | | ___ 
-\ \ /\ / / _ \| '__/ _` | |/ _ \\
- \ V  V / (_) | | | (_| | |  __/
-  \_/\_/ \___/|_|  \__,_|_|\___|
-                                
-Welcome to Wordle clone by xhemals
-You have 6 attempts to guess the word
-{colours.GREEN}Green means you have the letter in the right space
-{colours.AMBER}Amber means the letter is in the word
-{colours.RED}Red means the letter is not in the word
-{colours.RESET}
-            ''')
+            startScreen()
             print('\n'.join(wordAttempts))
             guessWord()
             checkWord()
     if gameComplete == True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(f'''
-                       _ _      
-__      _____  _ __ __| | | ___ 
-\ \ /\ / / _ \| '__/ _` | |/ _ \\
- \ V  V / (_) | | | (_| | |  __/
-  \_/\_/ \___/|_|  \__,_|_|\___|
-                                
-Welcome to Wordle clone by xhemals
-You have 6 attempts to guess the word
-{colours.GREEN}Green means you have the letter in the right space
-{colours.AMBER}Amber means the letter is in the word
-{colours.RED}Red means the letter is not in the word
-{colours.RESET}
-            ''')
+        startScreen()
         print('\n'.join(wordAttempts))
         print('Well Done, word successfully guessed!')
 
